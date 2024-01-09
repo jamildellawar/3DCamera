@@ -11,4 +11,8 @@ picam2.start()
 
 time.sleep(2)
 
+picam2.set_controls({"AfMode": 1, "LensPosition": 0})
+
+time.sleep(10)
+
 picam2.capture_file("image.jpg")
