@@ -2,7 +2,7 @@ from picamera2 import Picamera2, Preview
 from libcamera import controls
 import time
 import os
-from imageEditor import Images
+from rawImage import Images
 from videoMaker import Video
 
 picam2 = Picamera2()
@@ -23,7 +23,9 @@ inputY = True
 counter = 0
 while inputY:
 	userInput = input("press 'y' if you want a picture taken")
-	if userInput == 'y':
+	if userInput in {'y', 'timer'}:
+		if userInput =='timer':
+			time.sleep(3)
 		rawPictureDirectory = f"/home/jamilspi/Code/3DCamera/Raw/image{counter}.jpg"
 		picam2.capture_file(rawPictureDirectory)
 		counter += 1
